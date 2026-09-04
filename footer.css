@@ -1,0 +1,1321 @@
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+
+    --bg:#070711;
+    --bg2:#0b0b16;
+
+    --white:#ffffff;
+    --text:#e9e9f4;
+    --muted:#8c8ca2;
+
+    --purple:#8b5cf6;
+    --cyan:#22d3ee;
+    --pink:#ec4899;
+
+    --green:#36e6a0;
+
+    --border:rgba(255,255,255,.09);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(139,92,246,.07),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(34,211,238,.05),
+            transparent 30%
+        ),
+
+        var(--bg);
+
+    color:var(--white);
+
+    font-family:"Inter",sans-serif;
+
+}
+
+
+/* =========================================================
+   FOOTER WRAPPER
+========================================================= */
+
+.site-footer{
+
+    width:100%;
+
+    padding:60px 20px 15px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
+
+.site-footer::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:520px;
+    height:520px;
+
+    left:-250px;
+    bottom:-300px;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(139,92,246,.13),
+            transparent 65%
+        );
+
+    pointer-events:none;
+
+    animation:
+        footerGlowLeft 8s ease-in-out infinite alternate;
+
+}
+
+
+.site-footer::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:480px;
+    height:480px;
+
+    right:-240px;
+    top:-250px;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(34,211,238,.08),
+            transparent 65%
+        );
+
+    pointer-events:none;
+
+    animation:
+        footerGlowRight 9s ease-in-out infinite alternate;
+
+}
+
+
+/* =========================================================
+   BACKGROUND ANIMATIONS
+========================================================= */
+
+@keyframes footerGlowLeft{
+
+    0%{
+        transform:translate(0,0) scale(1);
+        opacity:.6;
+    }
+
+    100%{
+        transform:translate(80px,-30px) scale(1.15);
+        opacity:1;
+    }
+
+}
+
+
+@keyframes footerGlowRight{
+
+    0%{
+        transform:translate(0,0) scale(1);
+        opacity:.5;
+    }
+
+    100%{
+        transform:translate(-70px,50px) scale(1.12);
+        opacity:1;
+    }
+
+}
+
+
+/* =========================================================
+   FOOTER CONTAINER
+========================================================= */
+
+.footer-container{
+
+    width:100%;
+
+    max-width:1320px;
+
+    margin:0 auto;
+
+    position:relative;
+
+    z-index:2;
+
+    padding:42px 24px 24px;
+
+    border:1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.018)
+        );
+
+    backdrop-filter:blur(22px);
+
+    -webkit-backdrop-filter:blur(22px);
+
+    box-shadow:
+
+        0 25px 70px
+        rgba(0,0,0,.38);
+
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease,
+        border-color .45s ease;
+
+}
+
+
+/* =========================================================
+   CONTAINER HOVER
+========================================================= */
+
+.footer-container:hover{
+
+    transform:translateY(-3px);
+
+    border-color:
+        rgba(139,92,246,.18);
+
+    box-shadow:
+
+        0 30px 80px
+        rgba(0,0,0,.48),
+
+        0 0 50px
+        rgba(139,92,246,.055);
+
+}
+
+
+/* =========================================================
+   PREMIUM ANIMATED TOP LINE
+========================================================= */
+
+.footer-container::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-1px;
+
+    left:8%;
+
+    width:84%;
+
+    height:2px;
+
+    border-radius:50px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--purple),
+            var(--cyan),
+            var(--pink),
+            var(--purple),
+            transparent
+        );
+
+    background-size:300% 100%;
+
+    animation:
+        footerTopLine 5s linear infinite;
+
+    box-shadow:
+
+        0 0 12px
+        rgba(139,92,246,.45),
+
+        0 0 25px
+        rgba(34,211,238,.18);
+
+}
+
+
+/* =========================================================
+   TOP LINE ANIMATION
+========================================================= */
+
+@keyframes footerTopLine{
+
+    0%{
+        background-position:0% 50%;
+        opacity:.55;
+    }
+
+    50%{
+        background-position:100% 50%;
+        opacity:1;
+    }
+
+    100%{
+        background-position:0% 50%;
+        opacity:.55;
+    }
+
+}
+
+
+/* =========================================================
+   SUBTLE TOP LIGHT
+========================================================= */
+
+.footer-container::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-80px;
+
+    left:50%;
+
+    width:280px;
+
+    height:120px;
+
+    transform:translateX(-50%);
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            rgba(139,92,246,.09),
+            transparent 70%
+        );
+
+    filter:blur(15px);
+
+    pointer-events:none;
+
+    animation:
+        topLight 4s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes topLight{
+
+    from{
+        opacity:.35;
+        transform:
+            translateX(-50%)
+            scale(.9);
+    }
+
+    to{
+        opacity:.9;
+        transform:
+            translateX(-50%)
+            scale(1.1);
+    }
+
+}
+
+
+/* =========================================================
+   MAIN FOOTER GRID
+========================================================= */
+
+.footer-main{
+
+    display:grid;
+
+    grid-template-columns:
+        1.7fr
+        .8fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+}
+
+
+/* =========================================================
+   FOOTER BRAND
+========================================================= */
+
+.footer-brand{
+
+    max-width:330px;
+
+}
+
+
+/* =========================================================
+   FOOTER LOGO
+========================================================= */
+
+.footer-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    text-decoration:none;
+
+    color:white;
+
+    width:max-content;
+
+}
+
+
+/* =========================================================
+   LOGO IMAGE
+========================================================= */
+
+.footer-logo-image{
+
+    width:48px;
+
+    height:48px;
+
+    padding:2px;
+
+    border-radius:13px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--pink),
+            var(--cyan)
+        );
+
+    box-shadow:
+
+        0 10px 30px
+        rgba(139,92,246,.22);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+/* =========================================================
+   LOGO SHINE
+========================================================= */
+
+.footer-logo-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:70px;
+
+    height:10px;
+
+    background:
+        rgba(255,255,255,.22);
+
+    transform:
+        rotate(-45deg)
+        translateX(-60px);
+
+    transition:.6s;
+
+    z-index:2;
+
+}
+
+
+.footer-logo:hover
+.footer-logo-image::before{
+
+    transform:
+        rotate(-45deg)
+        translateX(65px);
+
+}
+
+
+/* =========================================================
+   LOGO IMAGE
+========================================================= */
+
+.footer-logo-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:11px;
+
+    display:block;
+
+    background:#11111d;
+
+}
+
+
+/* =========================================================
+   LOGO TEXT
+========================================================= */
+
+.footer-logo-text{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    letter-spacing:-.6px;
+
+    line-height:1;
+
+}
+
+
+.footer-logo-text span{
+
+    display:block;
+
+    margin-top:6px;
+
+    color:var(--muted);
+
+    font-family:"Inter",sans-serif;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+}
+
+
+/* =========================================================
+   BRAND DESCRIPTION
+========================================================= */
+
+.footer-description{
+
+    margin-top:22px;
+
+    color:#89899d;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+    max-width:310px;
+
+}
+
+
+/* =========================================================
+   AVAILABLE STATUS
+========================================================= */
+
+.footer-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:20px;
+
+    padding:9px 12px;
+
+    border-radius:9px;
+
+    border:1px solid
+        rgba(54,230,160,.12);
+
+    background:
+        rgba(54,230,160,.035);
+
+    color:#88889c;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:.4px;
+
+}
+
+
+.footer-status-dot{
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    box-shadow:
+        0 0 10px
+        rgba(54,230,160,.7);
+
+    animation:
+        footerPulse 2s infinite;
+
+}
+
+
+@keyframes footerPulse{
+
+    0%,100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:.4;
+        transform:scale(.75);
+    }
+
+}
+
+
+/* =========================================================
+   FOOTER COLUMN
+========================================================= */
+
+.footer-column h3{
+
+    position:relative;
+
+    margin-bottom:22px;
+
+    color:#ffffff;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    letter-spacing:-.1px;
+
+}
+
+
+/* =========================================================
+   COLUMN TITLE LINE
+========================================================= */
+
+.footer-column h3::after{
+
+    content:"";
+
+    display:block;
+
+    width:25px;
+
+    height:2px;
+
+    margin-top:9px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--cyan)
+        );
+
+    transition:.35s ease;
+
+}
+
+
+.footer-column:hover h3::after{
+
+    width:45px;
+
+}
+
+
+/* =========================================================
+   FOOTER NAV
+========================================================= */
+
+.footer-nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:13px;
+
+}
+
+
+.footer-nav a{
+
+    width:max-content;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    color:#858599;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    transition:.3s ease;
+
+}
+
+
+.footer-nav a i{
+
+    width:13px;
+
+    font-size:11px;
+
+    color:#626276;
+
+    transition:.3s ease;
+
+}
+
+
+.footer-nav a:hover{
+
+    color:#ffffff;
+
+    transform:translateX(5px);
+
+}
+
+
+.footer-nav a:hover i{
+
+    color:var(--cyan);
+
+}
+
+
+/* =========================================================
+   GET IN TOUCH
+========================================================= */
+
+.contact-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+
+.contact-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:11px;
+
+}
+
+
+.contact-icon{
+
+    width:35px;
+
+    height:35px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:8px;
+
+    color:var(--cyan);
+
+    font-size:11px;
+
+    border:1px solid
+        rgba(34,211,238,.12);
+
+    background:
+        rgba(34,211,238,.035);
+
+    transition:.35s ease;
+
+}
+
+
+.contact-item:hover .contact-icon{
+
+    color:#ffffff;
+
+    border-color:
+        rgba(34,211,238,.35);
+
+    background:
+        rgba(34,211,238,.09);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(34,211,238,.10);
+
+}
+
+
+/* =========================================================
+   CONTACT INFO
+========================================================= */
+
+.contact-info span{
+
+    display:block;
+
+    margin-bottom:3px;
+
+    color:#5f5f73;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+}
+
+
+.contact-info a{
+
+    color:#aaaabd;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+
+.contact-info a:hover{
+
+    color:#ffffff;
+
+}
+
+
+/* =========================================================
+   FOLLOW ME
+========================================================= */
+
+.social-text{
+
+    color:#77778b;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    margin-bottom:17px;
+
+    max-width:190px;
+
+}
+
+
+/* =========================================================
+   SOCIAL ICONS
+========================================================= */
+
+.social-icons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:9px;
+
+}
+
+
+.social-icon{
+
+    width:38px;
+
+    height:38px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    color:#858598;
+
+    font-size:14px;
+
+    border:1px solid
+        rgba(255,255,255,.07);
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition:.35s ease;
+
+}
+
+
+.social-icon:hover{
+
+    color:#ffffff;
+
+    border-color:
+        rgba(139,92,246,.35);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.18),
+            rgba(34,211,238,.07)
+        );
+
+    transform:
+
+        translateY(-5px)
+        scale(1.04);
+
+    box-shadow:
+
+        0 10px 25px
+        rgba(139,92,246,.15);
+
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.footer-divider{
+
+    width:100%;
+
+    height:1px;
+
+    margin-top:40px;
+
+    margin-bottom:20px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.09),
+            transparent
+        );
+
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.footer-bottom{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+}
+
+
+.copyright{
+
+    color:#626276;
+
+    font-size:13px;
+
+    font-weight:500;
+
+}
+
+
+.copyright strong{
+
+    color:#9999ac;
+
+    font-weight:600;
+
+}
+
+
+/* =========================================================
+   BOTTOM RIGHT
+========================================================= */
+
+.footer-bottom-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+
+.footer-bottom-link{
+
+    color:#68687b;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    transition:.3s;
+
+}
+
+
+.footer-bottom-link:hover{
+
+    color:#ffffff;
+
+}
+
+
+/* =========================================================
+   BACK TOP
+========================================================= */
+
+.back-top{
+
+    width:36px;
+
+    height:36px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:9px;
+
+    color:#9999ac;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    border:1px solid
+        rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition:.35s ease;
+
+}
+
+
+.back-top:hover{
+
+    color:#ffffff;
+
+    border-color:
+        rgba(139,92,246,.4);
+
+    background:
+        rgba(139,92,246,.10);
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(139,92,246,.12);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE 1050px
+========================================================= */
+
+@media(max-width:1050px){
+
+    .footer-main{
+
+        grid-template-columns:
+            1.5fr
+            1fr
+            1fr;
+
+        gap:40px;
+
+    }
+
+
+    .footer-brand{
+
+        grid-column:span 3;
+
+        max-width:550px;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE 750px
+========================================================= */
+
+@media(max-width:750px){
+
+    .site-footer{
+
+        padding:
+            50px 15px 12px;
+
+    }
+
+
+    .footer-container{
+
+        padding:
+            35px 25px 20px;
+
+        border-radius:18px;
+
+    }
+
+
+    .footer-main{
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap:35px 25px;
+
+    }
+
+
+    .footer-brand{
+
+        grid-column:span 2;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE 550px
+========================================================= */
+
+@media(max-width:550px){
+
+    .site-footer{
+
+        padding:
+            35px 10px 8px;
+
+    }
+
+
+    .footer-container{
+
+        padding:
+            30px 20px 18px;
+
+    }
+
+
+    .footer-main{
+
+        grid-template-columns:1fr;
+
+        gap:30px;
+
+    }
+
+
+    .footer-brand{
+
+        grid-column:auto;
+
+    }
+
+
+    .footer-logo-image{
+
+        width:43px;
+
+        height:43px;
+
+        border-radius:11px;
+
+    }
+
+
+    .footer-logo-text{
+
+        font-size:18px;
+
+    }
+
+
+    .footer-description{
+
+        font-size:13px;
+
+    }
+
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+
+    .footer-bottom-right{
+
+        width:100%;
+
+        justify-content:space-between;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+
+    }
+
+}
